@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         mMainBtb.init(getSupportFragmentManager())
                 .setImgSize(50,50)
-                .setFontSize(8)
+                .setFontSize(15)
                 .setTabPadding(4,6,10)
                 .setChangeColor(Color.RED,Color.DKGRAY)
                 .addTabItem("精选",R.mipmap.found, Fragment_JX.class)
