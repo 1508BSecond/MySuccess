@@ -35,5 +35,9 @@ dependencies {
     compile 'com.squareup.okio:okio:1.5.0'
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+<<<<<<< HEAD
     testCompile 'junit:junit:4.12'
+=======
+
+>>>>>>> fd36f73228031a01e878f3e7d921564a8cea5110
 }
