@@ -2,13 +2,19 @@ package com.pc.myapp.jump;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.pc.myapp.R;
+import com.pc.myapp.jump.fragment.Fragment_JJ;
+import com.pc.myapp.jump.fragment.Fragment_TJ;
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,6 +44,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
      * 播放
      */
     private Button mDetailTvPlay;
+    private PagerSlidingTabStrip mDetailPsts;
+    private ViewPager mDetailVp;
+
+    //滑动标题
+    String[] titles = {"简介","推荐"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,39 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
 
+        //关联
+
+
+        //设值下面的横向滑动
+        mDetailVp.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return titles[position];
+            }
+
+            @Override
+            public Fragment getItem(int position) {
+
+                Fragment fragment = null;
+                switch (position){
+                    case 0:
+                        fragment = new Fragment_JJ();
+                        break;
+                    case 1:
+                        fragment = new Fragment_TJ();
+                        break;
+                }
+
+                return fragment;
+            }
+
+            @Override
+            public int getCount() {
+                return titles.length;
+            }
+        });
+        mDetailPsts.setViewPager(mDetailVp);
 
     }
 
@@ -62,6 +106,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         mDetailTvTime = (TextView) findViewById(R.id.detail_tv_time);
         mDetailTvPlay = (Button) findViewById(R.id.detail_tv_play);
         mDetailTvPlay.setOnClickListener(this);
+        mDetailPsts = (PagerSlidingTabStrip) findViewById(R.id.detail_psts);
+        mDetailVp = (ViewPager) findViewById(R.id.detail_vp);
     }
 
     @Override

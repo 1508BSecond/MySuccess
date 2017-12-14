@@ -115,4 +115,15 @@
 
     </LinearLayout>
 
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/detail_psts"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"></com.astuetz.PagerSlidingTabStrip>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/detail_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
 </LinearLayout>
