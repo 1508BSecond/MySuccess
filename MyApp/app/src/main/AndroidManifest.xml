@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".jump.DetailActivity"></activity>
+        <activity android:name=".jump.DetailActivity" />
+        <activity android:name=".jump.PlayActivity"></activity>
     </application>
 
 </manifest>
