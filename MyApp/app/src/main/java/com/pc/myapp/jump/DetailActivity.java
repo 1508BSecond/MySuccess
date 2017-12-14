@@ -10,13 +10,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.pc.myapp.R;
+import com.pc.myapp.jump.MVP_Dagger2_Retrofit2_RxJava2_Okhttp3.DaggerDetailCommpent;
+import com.pc.myapp.jump.MVP_Dagger2_Retrofit2_RxJava2_Okhttp3.DetailModule;
+import com.pc.myapp.jump.MVP_Dagger2_Retrofit2_RxJava2_Okhttp3.DetailPres;
+import com.pc.myapp.jump.MVP_Dagger2_Retrofit2_RxJava2_Okhttp3.DetailView;
+import com.pc.myapp.jump.bean.DetailBean;
 import com.pc.myapp.jump.fragment.Fragment_JJ;
 import com.pc.myapp.jump.fragment.Fragment_TJ;
 
-public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
+import javax.inject.Inject;
+
+public class DetailActivity extends AppCompatActivity implements View.OnClickListener, DetailView {
 
     private ImageView mDetailBack;
     /**
@@ -50,6 +58,10 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     //滑动标题
     String[] titles = {"简介","推荐"};
 
+    //注入对象
+    @Inject
+    DetailPres detailPres;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +71,10 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
 
+        //得到桥梁对象
+        DaggerDetailCommpent.builder().detailModule(new DetailModule(this)).build().inject(this);
         //关联
-
+        detailPres.detailMandV(id);
 
         //设值下面的横向滑动
         mDetailVp.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
@@ -119,5 +133,11 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.detail_tv_play:
                 break;
         }
+    }
+
+    //实现View层
+    @Override
+    public void detailShow(DetailBean detailBean) {
+        Toast.makeText(this, detailBean.getRet().getTitle(), Toast.LENGTH_SHORT).show();
     }
 }
