@@ -6,5 +6,5 @@ package com.pc.myapp.specialfunction.api;
 
 public class Api {
     public static final String zhuanti = "http://api.svipmovie.com/front/";
-    public static final String list = "http://api.svipmovie.com/front/columns/";
+    public static final String list = "http://api.svipmovie.com/front/";
 }

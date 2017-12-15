@@ -5,7 +5,6 @@ import com.pc.myapp.specialfunction.bean.SpecialBean;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 /**
  * Created by TR on 2017/12/14.
@@ -21,11 +20,10 @@ public interface ApiService {
 
 
     /**
+     * http://api.svipmovie.com/front/columns/getNewsList.do?catalogId=402834815584e463015584e539700019&information=null
      * @Query("catalogId") String catalogId, @Query("information") String information
-     *  @param catalogId
-     *  @param information
      *  @return
      */
-    @GET("getVideoList.do")
-    Flowable<ListDtBean> getListData(@Query("catalogId")String catalogId,@Query("information")String information);
+    @GET("columns/getNewsList.do?catalogId=402834815584e463015584e539700019&information=null")
+    Flowable<ListDtBean> getListData();
 }

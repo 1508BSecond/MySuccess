@@ -22,7 +22,7 @@ public class GetListModel {
     public void getData(final OnSuccessListener onSuccessListener) {
         ApiService apiService = RetrofitUtils.getInstance().getApiService(Api.list, ApiService.class);
 
-        Flowable<ListDtBean> list = apiService.getListData("ff808081586ae7e60158713d14450283","null");
+        Flowable<ListDtBean> list = apiService.getListData();
         list.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<ListDtBean>() {

@@ -42,8 +42,8 @@ public class SpecialListActivity extends AppCompatActivity implements GetListVie
     public void getList(ListDtBean listDtBean) {
         List<ListDtBean.RetBean.ListBean> list = listDtBean.getRet().getList();
 
-        SpecialListRecyclerViewAdapter specialListRecyclerViewAdapter = new SpecialListRecyclerViewAdapter(list, this);
-        mListRecyclerView.setAdapter(specialListRecyclerViewAdapter);
+        SpecialListRecyclerViewAdapter adapter = new SpecialListRecyclerViewAdapter(list, this);
+        mListRecyclerView.setAdapter(adapter);
 
 
     }
