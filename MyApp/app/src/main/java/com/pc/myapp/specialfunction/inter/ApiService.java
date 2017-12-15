@@ -20,7 +20,9 @@ public interface ApiService {
 
 
     /**
-     * http://api.svipmovie.com/front/columns/getNewsList.do?catalogId=402834815584e463015584e539700019&information=null
+     * http://api.svipmovie.com/front/
+     * columns/getNewsList.do
+     * ?catalogId=402834815584e463015584e539700019&information=null
      * @Query("catalogId") String catalogId, @Query("information") String information
      *  @return
      */
