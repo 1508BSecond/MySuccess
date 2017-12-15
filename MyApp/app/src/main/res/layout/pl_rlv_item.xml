@@ -71,8 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="0"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+            android:textColor="#fff" />
 
         <TextView
             android:layout_width="2dp"
@@ -84,8 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="分享"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+            android:textColor="#fff" />
 
         <TextView
             android:layout_width="2dp"
@@ -97,8 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="举报"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+            android:textColor="#fff" />
 
     </LinearLayout>
 
