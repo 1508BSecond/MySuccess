@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.bumptech.glide.Glide;
 import com.pc.myapp.R;
 import com.pc.myapp.jump.MVP_Dagger2_Retrofit2_RxJava2_Okhttp3.DaggerDetailCommpent;
 import com.pc.myapp.jump.MVP_Dagger2_Retrofit2_RxJava2_Okhttp3.DetailModule;
@@ -61,6 +62,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     //注入对象
     @Inject
     DetailPres detailPres;
+    private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +71,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         initView();
 
         Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
+        id = intent.getStringExtra("id");
 
         //得到桥梁对象
         DaggerDetailCommpent.builder().detailModule(new DetailModule(this)).build().inject(this);
@@ -131,6 +133,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
             case R.id.detail_tv_play:
+                Intent intent = new Intent(DetailActivity.this,PlayActivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
                 break;
         }
     }
@@ -139,5 +144,24 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void detailShow(DetailBean detailBean) {
         Toast.makeText(this, detailBean.getRet().getTitle(), Toast.LENGTH_SHORT).show();
+
+        Glide.with(this).load(detailBean.getRet().getPic()).into(mDetailIvHaibao);
+
+        //标题名字
+        mDetailTvName.setText(detailBean.getRet().getTitle());
+
+        //评分
+        String score = detailBean.getRet().getTicketContent().getScore();
+        mDetailTvFen.setText(score);
+        //类型
+        String videoType = detailBean.getRet().getVideoType();
+        mDetailTvType.setText(videoType);
+        //地区
+        mDetailTvAddress.setText(detailBean.getRet().getTitle());
+        //时间
+        mDetailTvTime.setText(String.valueOf(detailBean.getRet().getAirTime()));
+
+
+
     }
 }

@@ -1,6 +1,7 @@
 package com.pc.myapp.jump;
 
 import com.pc.myapp.jump.bean.DetailBean;
+import com.pc.myapp.jump.bean.PlInfoBean;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
@@ -21,5 +22,15 @@ public interface ApiService {
      */
     @GET("videoDetailApi/videoDetail.do")
     Flowable<DetailBean> detail(@Query("mediaId")String mediaId);
+
+    /**
+     * 评论
+     * http://api.svipmovie.com/front/
+     * Commentary/getCommentList.do
+     * ?mediaId=840ddae38ed346a197a76b46b448067e
+     *
+     */
+    @GET("Commentary/getCommentList.do")
+    Flowable<PlInfoBean> plInfo(@Query("mediaId")String mediaId);
 
 }
