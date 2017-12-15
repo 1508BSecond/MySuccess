@@ -42,13 +42,14 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/jx_iv"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginLeft="10dp"
                             android:background="@mipmap/a_4" />
 
                         <EditText
-                            android:id="@+id/frg1_find"
+                            android:id="@+id/jx_et"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"

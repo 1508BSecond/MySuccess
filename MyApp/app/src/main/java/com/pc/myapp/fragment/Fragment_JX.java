@@ -9,9 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.pc.myapp.R;
 import com.pc.myapp.jump.DetailActivity;
+import com.pc.myapp.jx.SeoActivity;
 import com.pc.myapp.jx.adapert.MyAdapert;
 import com.pc.myapp.jx.api.GlideImageLoader;
 import com.pc.myapp.jx.bean.JxBean;
@@ -38,6 +41,8 @@ public class Fragment_JX extends Fragment implements BannerViewLisetner{
     private Banner banner;
     private RecyclerView jx_rlv;
     private MyAdapert adapert;
+    private ImageView jx_iv;
+    private EditText jx_et;
 
     @Nullable
     @Override
@@ -46,6 +51,24 @@ public class Fragment_JX extends Fragment implements BannerViewLisetner{
         View view = inflater.inflate(R.layout.frag_jx, container, false);
         banner = view.findViewById(R.id.banner);
         jx_rlv = view.findViewById(R.id.jx_rlv);
+        jx_iv = view.findViewById(R.id.jx_iv);
+        jx_et = view.findViewById(R.id.jx_et);
+        jx_iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SeoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        jx_et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SeoActivity.class);
+                startActivity(intent);
+            }
+        });
+
         DaggerBannerComponent.builder().bannerModule(new BannerModule(this)).build().inject(this);
         bannerPresenter.relevance();
         jx_rlv.setLayoutManager(new LinearLayoutManager(getActivity()));
