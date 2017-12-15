@@ -23,9 +23,10 @@ public class SpecialListRecyclerViewAdapter extends RecyclerView.Adapter<Recycle
     private Context context;
 
     private OnItemClickListener mOnItemClickListener = null;
+    private ListDtBean.RetBean.ListBean listBean;
 
     public static interface OnItemClickListener {
-        void onItemClick(List<ListDtBean.RetBean.ListBean> list, int position);
+        void onItemClick(ListDtBean.RetBean.ListBean listBean, int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -47,13 +48,13 @@ public class SpecialListRecyclerViewAdapter extends RecyclerView.Adapter<Recycle
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         MyViewHolder myViewHolder = (MyViewHolder) holder;
-        final ListDtBean.RetBean.ListBean listBean = list.get(position);
+        listBean = list.get(position);
         myViewHolder.tv_title.setText(listBean.getTitle());
         Glide.with(context).load(listBean.getPic()).into(myViewHolder.img_video);
         myViewHolder.spitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mOnItemClickListener.onItemClick((List<ListDtBean.RetBean.ListBean>) listBean,position);
+                mOnItemClickListener.onItemClick(listBean,position);
             }
         });
     }

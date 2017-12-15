@@ -50,7 +50,10 @@ public class SpecialRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
         MyViewHolder myViewHolder = (MyViewHolder) holder;
         final SpecialBean.RetBean.ListBean listBean = list.get(position);
         myViewHolder.tv_title.setText(listBean.getChildList().get(0).getTitle());
-        Glide.with(context).load(listBean.getChildList().get(0).getPic()).into( myViewHolder.img_video);
+        Glide.with(context).load(listBean.getChildList().get(0).getPic())
+                .override(200, 200)
+                .fitCenter()
+                .into( myViewHolder.img_video);
         myViewHolder.spitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
