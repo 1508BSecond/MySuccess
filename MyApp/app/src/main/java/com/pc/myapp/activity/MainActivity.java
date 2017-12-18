@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .addTabItem("专题", R.mipmap.special, Fragment_ZT.class)
                 .addTabItem("发现", R.mipmap.fancy, Fragment_FX.class)
                 .addTabItem("我的", R.mipmap.my, Fragment_WD.class)
+                .setTabBarBackgroundResource(R.mipmap.bottom_bg)
                 .isShowDivider(false)
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override

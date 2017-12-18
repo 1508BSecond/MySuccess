@@ -5,4 +5,204 @@
     android:background="@mipmap/bg_colorful"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@mipmap/my_bg_colorful"
+        >
+
+        <ImageView
+            android:id="@+id/img_set"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/my_set"
+            android:layout_marginLeft="440dp"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:background="@mipmap/my_records"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="历史"
+                android:textColor="#ffff"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                />
+
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="340dp"
+                android:background="@mipmap/right"
+                />
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="370dp"
+            android:layout_height="1dp"
+            android:background="#7ED3F9"
+            android:layout_marginLeft="60dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:background="@mipmap/my_down"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="缓存"
+                android:textColor="#ffff"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                />
+
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="340dp"
+                android:background="@mipmap/right"
+                />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="370dp"
+            android:layout_height="1dp"
+            android:background="#7ED3F9"
+            android:layout_marginLeft="60dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:background="@mipmap/my_collection"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收藏"
+                android:textColor="#ffff"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                />
+
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="340dp"
+                android:background="@mipmap/right"
+                />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="370dp"
+            android:layout_height="1dp"
+            android:background="#7ED3F9"
+            android:layout_marginLeft="60dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:background="@mipmap/my_everyone"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主题"
+                android:textColor="#ffff"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                />
+
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="13dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="340dp"
+                android:background="@mipmap/right"
+                />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="370dp"
+            android:layout_height="1dp"
+            android:background="#7ED3F9"
+            android:layout_marginLeft="60dp"
+            />
+
+
+    </LinearLayout>
+
 </LinearLayout>

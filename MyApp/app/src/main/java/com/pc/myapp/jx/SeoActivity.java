@@ -1,5 +1,6 @@
 package com.pc.myapp.jx;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.pc.myapp.R;
+import com.pc.myapp.jump.DetailActivity;
 import com.pc.myapp.jx.adapert.MySeoAdapert;
 import com.pc.myapp.jx.bean.SeoBean;
 import com.pc.myapp.jx.component.DaggerSeoComponent;
@@ -46,6 +48,11 @@ public class SeoActivity extends AppCompatActivity implements SeoViewLisetner{
         seo_iv2 = (ImageView) findViewById(R.id.seo_iv2);
 
 
+
+
+
+
+
         DaggerSeoComponent.builder().seoModule(new SeoModule(this)).build().inject(this);
 
         seo_rlv.setLayoutManager(new GridLayoutManager(this,3));
@@ -76,9 +83,15 @@ public class SeoActivity extends AppCompatActivity implements SeoViewLisetner{
         adapert.setOnItemListener(new MySeoAdapert.OnItemListener() {
             @Override
             public void onItemClick(SeoBean.RetBean.ListBean listBean) {
-
+                String id = listBean.getDataId();
+                Intent intent = new Intent(SeoActivity.this, DetailActivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
             }
         });
     }
+
+
+
 
 }

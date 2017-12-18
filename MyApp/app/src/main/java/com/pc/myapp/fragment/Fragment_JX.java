@@ -84,7 +84,7 @@ public class Fragment_JX extends Fragment implements BannerViewLisetner{
         //设置图片集合
         ArrayList<String> images = new ArrayList<>();
         for (int i = 0; i< list.size();i++){
-            images.add(list.get(0).getPic());
+            images.add(list.get(i).getPic());
         }
         banner.setImages(images);
         //banner设置方法全部调用完毕时最后调用

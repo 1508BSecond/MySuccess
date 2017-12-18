@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.astuetz.PagerSlidingTabStrip;
 import com.bumptech.glide.Glide;
 import com.pc.myapp.R;
+import com.pc.myapp.gen.DaoMaster;
+import com.pc.myapp.gen.DaoSession;
+import com.pc.myapp.gen.PersonDao;
 import com.pc.myapp.jump.MVP_Dagger2_Retrofit2_RxJava2_Okhttp3.DaggerDetailCommpent;
 import com.pc.myapp.jump.MVP_Dagger2_Retrofit2_RxJava2_Okhttp3.DetailModule;
 import com.pc.myapp.jump.MVP_Dagger2_Retrofit2_RxJava2_Okhttp3.DetailPres;
@@ -55,6 +58,10 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private Button mDetailTvPlay;
     private PagerSlidingTabStrip mDetailPsts;
     private ViewPager mDetailVp;
+    private DaoMaster.DevOpenHelper mDevOpenHelper;
+    private DaoMaster mDaoMaster;
+    private DaoSession mDaoSession;
+    private PersonDao mPersonDao;
 
     //滑动标题
     String[] titles = {"简介","推荐"};
@@ -63,6 +70,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     @Inject
     DetailPres detailPres;
     private String id;
+    private String pic;
+    private String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +154,13 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     public void detailShow(DetailBean detailBean) {
         Toast.makeText(this, detailBean.getRet().getTitle(), Toast.LENGTH_SHORT).show();
 
+        pic = detailBean.getRet().getPic();
+        title = detailBean.getRet().getTitle();
+
+        openDb();
+
+        insert();
+
         Glide.with(this).load(detailBean.getRet().getPic()).into(mDetailIvHaibao);
 
         //标题名字
@@ -163,5 +179,18 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
 
 
+    }
+
+    private void insert() {
+        /*Person person = new Person(pic, title);
+        long insert = mPersonDao.insert(person);
+        Toast.makeText(this, "添加数据库成功"+insert, Toast.LENGTH_SHORT).show();*/
+    }
+
+    private void openDb() {
+        mDevOpenHelper = new DaoMaster.DevOpenHelper(this, "person.db", null);
+        mDaoMaster = new DaoMaster(mDevOpenHelper.getWritableDb());
+        mDaoSession = mDaoMaster.newSession();
+        mPersonDao = mDaoSession.getPersonDao();
     }
 }
