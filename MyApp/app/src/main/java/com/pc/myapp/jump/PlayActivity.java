@@ -24,6 +24,7 @@ import com.pc.myapp.jump.fragment.Fragment_PL;
 
 import javax.inject.Inject;
 
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.widget.media.AndroidMediaController;
 import tv.danmaku.ijk.media.widget.media.IjkVideoView;
 
@@ -127,4 +128,23 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         mPlayIjk.start();
 
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mPlayIjk.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        IjkMediaPlayer.native_profileEnd();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPlayIjk.resume();
+    }
+
 }

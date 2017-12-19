@@ -5,4 +5,22 @@
     android:background="@mipmap/bg_colorful"
     android:orientation="vertical">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rlv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/but"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:background="#47d709"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:text="换一个"
+        />
 </LinearLayout>
